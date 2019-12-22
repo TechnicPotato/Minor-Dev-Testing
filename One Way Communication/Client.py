@@ -33,4 +33,7 @@ if __name__ == "__main__":
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     initial_setup(host=HOST, port=PORT, socket=s)
     send_msg(b"test", socket=s)
+    msg = s.recv(1024)
+    print(msg.decode("utf-8"))
+    s.close()
     
