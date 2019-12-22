@@ -14,12 +14,7 @@ if __name__ == "__main__":
     print("Connected to: {client}".format(client=addr))
     while True:
         # Recieve 1024 bytes, can change parameters to allow more
-        try:
-            data = conn.recv(1024)
-        except ConnectionResetError:
-            print("Connection Closed!")
-            conn.close()
-            break
+        data=conn.recv(1024)
         # Cannot recieve any further data.
         if data == 0:
             break
@@ -28,4 +23,3 @@ if __name__ == "__main__":
             print(data.decode("utf-8"))
         conn.sendall(b"Message Recieved!")
     conn.close()
-    
