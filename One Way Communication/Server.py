@@ -1,7 +1,7 @@
 import socket
 
 # Globals
-HOST = ''
+HOST = '127.0.0.1'
 PORT = 9001
 
 # Main Thread
