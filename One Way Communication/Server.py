@@ -1,7 +1,7 @@
 import socket
 
 # Globals
-HOST = ''
+HOST = '127.0.0.1'
 PORT = 9001
 
 # Main Thread
@@ -14,8 +14,13 @@ if __name__ == "__main__":
     print("Connected to: {client}".format(client=addr))
     while True:
         # Recieve 1024 bytes, can change parameters to allow more
-        data = conn.recv(1024)
-        # Cannot recieve any data.
+        try:
+            data = conn.recv(1024)
+        except ConnectionResetError:
+            print("Connection Closed!")
+            conn.close()
+            break
+        # Cannot recieve any further data.
         if data == 0:
             break
         # Printing

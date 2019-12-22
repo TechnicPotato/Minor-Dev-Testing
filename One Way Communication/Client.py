@@ -2,7 +2,7 @@ import socket
 
 # These can be shifted later to allow command line arguments.
 # These are the statically defined IPs to connect to.
-HOST = "10.0.0.44"
+HOST = "10.0.0.94"
 # Hopefully a free port, allow changes
 PORT = 9001
 
